@@ -107,7 +107,7 @@ public class GridCollisionHandler : MonoBehaviour
 
     //DEBUG
 
-    private void Update()
+    /*private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
@@ -117,5 +117,5 @@ public class GridCollisionHandler : MonoBehaviour
             else
                 Debug.Log("Tile not walkable");
         }
-    }
+    }*/
 }
