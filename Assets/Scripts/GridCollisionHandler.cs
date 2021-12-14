@@ -22,6 +22,13 @@ public class GridCollisionHandler : MonoBehaviour
 
     public TileBase test;
 
+    private enum Exceptions
+    {
+        WALKABLE = 0,
+        NOT_WALKABLE,
+        NONE
+    }
+
     private void Awake()
     {
         exceptions_true = new Dictionary<TileBase, bool>();
@@ -37,6 +44,7 @@ public class GridCollisionHandler : MonoBehaviour
         Vector3Int pos = new Vector3Int(position.x, position.y, 0);
         Debug.Log(pos);
         bool res = false;
+        Exceptions exeptres = Exceptions.NONE;
         //maps
         foreach (Tilemap item in walkable_maps)
         {
@@ -46,9 +54,11 @@ public class GridCollisionHandler : MonoBehaviour
                 res = true;
                 if (exceptions_true.ContainsKey(local_tile))
                 {
-                    res = exceptions_true.ContainsKey(local_tile);
+                    if (exceptions_true[local_tile])
+                        exeptres = Exceptions.WALKABLE;
+                    else
+                        exeptres = Exceptions.NOT_WALKABLE;
                 }
-                break;
             }
         }
         //Masks
@@ -62,11 +72,24 @@ public class GridCollisionHandler : MonoBehaviour
                     res = false;
                     if (exceptions_true.ContainsKey(local_tile))
                     {
-                        res = exceptions_true.ContainsKey(local_tile);
+                        if (exceptions_true[local_tile])
+                            exeptres = Exceptions.WALKABLE;
+                        else
+                            exeptres = Exceptions.NOT_WALKABLE;
                     }
-                    break;
                 }
             }
+
+        //apply exceptions
+        switch (exeptres)
+        {
+            case Exceptions.WALKABLE:
+                return true;
+            case Exceptions.NOT_WALKABLE:
+                return false;
+            case Exceptions.NONE:
+                break;
+        }
         //return
         return res;
     }
@@ -78,6 +101,8 @@ public class GridCollisionHandler : MonoBehaviour
         return isTileWalkableLocal(new Vector2Int(temp.x, temp.y));
     }
 
+    public bool isTileWalkableGlobal(Vector3 position) => isTileWalkableGlobal(new Vector2Int((int)position.x, (int)position.y));
+
 
 
     //DEBUG
@@ -87,7 +112,7 @@ public class GridCollisionHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Vector3 globalMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            if (isTileWalkableGlobal(new Vector2Int((int)globalMousePosition.x, (int)globalMousePosition.y)))
+            if (isTileWalkableGlobal(globalMousePosition))
                 Debug.Log("Tile walkable");
             else
                 Debug.Log("Tile not walkable");
