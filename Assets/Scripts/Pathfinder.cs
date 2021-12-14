@@ -77,9 +77,10 @@ public class Pathfinder : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            debug.ClearAllTiles();
             Vector3 globalMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             globalMousePosition = mapgrid.WorldToCell(globalMousePosition);
-            BFS(new Vector2Int((int)globalMousePosition.x, (int)globalMousePosition.y), 5);
+            BFS(new Vector2Int((int)globalMousePosition.x, (int)globalMousePosition.y), 3);
         }
     }
 }
