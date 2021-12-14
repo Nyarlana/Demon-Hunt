@@ -49,8 +49,9 @@ public class Pathfinder : MonoBehaviour
         debug.SetTile(new Vector3Int(origin.x, origin.y, 0), queuedTile);
 
         //loop
-        while (queue.Count > 0 && range > 0)
+        while (queue.Count > 0)
         {
+            
             range--;
             List<Vector2Int> queue_temp = new List<Vector2Int>(queue);
             foreach (Vector2Int point in queue_temp)
@@ -59,11 +60,12 @@ public class Pathfinder : MonoBehaviour
                 debug.SetTile(new Vector3Int(point.x, point.y, 0), exploredtile);
                 queue.Remove(point);
 
+                if (range > 0)
                 foreach (Vector2Int direction in directions)
                 {
-                    if (mapgridhandler.isTileWalkableLocal(direction + point))
+                    if (mapgridhandler.isTileWalkableLocal(direction + point) && !explored.Contains(direction + point))
                     {
-                        debug.SetTile(new Vector3Int(point.x, point.y, 0), queuedTile);
+                        debug.SetTile(new Vector3Int(point.x+direction.x, point.y+direction.y, 0), queuedTile);
                         queue.Add(direction + point);
                     }
                 }
@@ -77,7 +79,7 @@ public class Pathfinder : MonoBehaviour
         {
             Vector3 globalMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             globalMousePosition = mapgrid.WorldToCell(globalMousePosition);
-            BFS(new Vector2Int((int)globalMousePosition.x, (int)globalMousePosition.y), 3);
+            BFS(new Vector2Int((int)globalMousePosition.x, (int)globalMousePosition.y), 5);
         }
     }
 }
