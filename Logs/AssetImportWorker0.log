@@ -15,11 +15,11 @@ C:/Users/adfages/Documents/GitHub/Demon-Hunt
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-60538
+64256
 Successfully changed project path to: C:/Users/adfages/Documents/GitHub/Demon-Hunt
 C:/Users/adfages/Documents/GitHub/Demon-Hunt
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 82.81 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 47.14 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.24f1 (79c78de19888)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.24f1/Editor/Data/Resources/UnitySubsystems
@@ -35,31 +35,31 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.24f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.24f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.24f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56260
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56780
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.24f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001396 seconds.
+Registered in 0.001371 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 46.28 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 46.25 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.494 seconds
+- Completed reload, in  0.520 seconds
 Domain Reload Profiling:
-	ReloadAssembly (494ms)
-		BeginReloadAssembly (46ms)
+	ReloadAssembly (520ms)
+		BeginReloadAssembly (49ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (388ms)
-			LoadAssemblies (44ms)
+		EndReloadAssembly (400ms)
+			LoadAssemblies (48ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (124ms)
+			SetupTypeCache (135ms)
 			ReleaseScriptCaches (0ms)
 			RebuildScriptCaches (26ms)
-			SetupLoadedEditorAssemblies (153ms)
+			SetupLoadedEditorAssemblies (154ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
@@ -73,51 +73,51 @@ Domain Reload Profiling:
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.003462 seconds.
+Registered in 0.003273 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 46.29 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 45.71 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.035 seconds
+- Completed reload, in  0.936 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1038ms)
-		BeginReloadAssembly (126ms)
+	ReloadAssembly (937ms)
+		BeginReloadAssembly (116ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (16ms)
-		EndReloadAssembly (860ms)
-			LoadAssemblies (81ms)
+			CreateAndSetChildDomain (15ms)
+		EndReloadAssembly (769ms)
+			LoadAssemblies (73ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (249ms)
+			SetupTypeCache (252ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (40ms)
-			SetupLoadedEditorAssemblies (296ms)
+			RebuildScriptCaches (42ms)
+			SetupLoadedEditorAssemblies (295ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (3ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (46ms)
-				BeforeProcessingInitializeOnLoad (69ms)
+				BeforeProcessingInitializeOnLoad (68ms)
 				ProcessInitializeOnLoadAttributes (159ms)
 				ProcessInitializeOnLoadMethodAttributes (14ms)
 				AfterProcessingInitializeOnLoad (5ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (5ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.53 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.58 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2217 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 96.5 MB.
-System memory in use after: 96.6 MB.
+Unloading 2220 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 96.6 MB.
+System memory in use after: 96.7 MB.
 
-Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 2650.
-Total: 2.547600 ms (FindLiveObjects: 0.162700 ms CreateObjectMapping: 0.068600 ms MarkObjects: 2.264700 ms  DeleteObjects: 0.050800 ms)
+Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 2653.
+Total: 2.901100 ms (FindLiveObjects: 0.173200 ms CreateObjectMapping: 0.079300 ms MarkObjects: 2.595500 ms  DeleteObjects: 0.052100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -131,137 +131,64 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/Imports/HAS Creatures/HAS Creature Pack 1.3
-  artifactKey: Guid(db85a61ff485290449b59c9a2807f142) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imports/HAS Creatures/HAS Creature Pack 1.3 using Guid(db85a61ff485290449b59c9a2807f142) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ed98bfa7cf53e242f977b2c7a294520') in 0.003590 seconds 
-  Import took 0.006106 seconds .
+  path: Assets/Scenes/SampleScene.unity
+  artifactKey: Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/SampleScene.unity using Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '481bdec4ae8a02d68c9f82cfa41e3422') in 0.010787 seconds 
+  Import took 0.013678 seconds .
 
 ========================================================================
-Received Import Request.
-  Time since last request: 0.000264 seconds.
-  path: Assets/Scenes
-  artifactKey: Guid(04eb7ae4ba02b7c4aa3df5cd52e479a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes using Guid(04eb7ae4ba02b7c4aa3df5cd52e479a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08baf2b8e64c0cfa12822e1d92a44dba') in 0.001316 seconds 
-  Import took 0.003779 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003161 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.55 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.846 seconds
+Domain Reload Profiling:
+	ReloadAssembly (846ms)
+		BeginReloadAssembly (100ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (28ms)
+		EndReloadAssembly (694ms)
+			LoadAssemblies (71ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (250ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (37ms)
+			SetupLoadedEditorAssemblies (250ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (69ms)
+				ProcessInitializeOnLoadAttributes (161ms)
+				ProcessInitializeOnLoadMethodAttributes (10ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.54 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2209 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 96.0 MB.
+System memory in use after: 96.1 MB.
 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000207 seconds.
-  path: Assets/Imports/HAS Creatures
-  artifactKey: Guid(5c192dbac9747e1439d35e07ae8b3697) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imports/HAS Creatures using Guid(5c192dbac9747e1439d35e07ae8b3697) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c81c03980d2f91999dd0e46c7d4d1889') in 0.001360 seconds 
-  Import took 0.004149 seconds .
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2655.
+Total: 2.950500 ms (FindLiveObjects: 0.172200 ms CreateObjectMapping: 0.078400 ms MarkObjects: 2.684200 ms  DeleteObjects: 0.014800 ms)
 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000198 seconds.
-  path: Assets/Imports/HAS Creatures/HAS Creature Pack 1.3/MagicElementalsSpriteSheet.png
-  artifactKey: Guid(a10d6ce854c46594fb70ff1180aa7566) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imports/HAS Creatures/HAS Creature Pack 1.3/MagicElementalsSpriteSheet.png using Guid(a10d6ce854c46594fb70ff1180aa7566) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46b66bf6a147a0bc9afe0832cc5a72fb') in 0.078455 seconds 
-  Import took 0.081137 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000194 seconds.
-  path: Assets/Imports/HAS Creatures/HAS Creature Pack 1.3/MagicElementalsProjectile.png
-  artifactKey: Guid(bd61ec47dc96ae549a9cc1dd954427af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imports/HAS Creatures/HAS Creature Pack 1.3/MagicElementalsProjectile.png using Guid(bd61ec47dc96ae549a9cc1dd954427af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4245e1c86ade881eb908c431baffaf0') in 0.020798 seconds 
-  Import took 0.023335 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000255 seconds.
-  path: Assets/Imports
-  artifactKey: Guid(642ae774c57ed8f489706a986557817a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imports using Guid(642ae774c57ed8f489706a986557817a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79dc5684bfd99ba3b5641ea9a6c0c3bc') in 0.001161 seconds 
-  Import took 0.003432 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.076485 seconds.
-  path: Assets/Imports/HAS Creatures/HAS Creature Pack 1.2
-  artifactKey: Guid(e808701209896e944a1d22868ec75a97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imports/HAS Creatures/HAS Creature Pack 1.2 using Guid(e808701209896e944a1d22868ec75a97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ad0cdc67f17cda6c022ae0ba7a038d7') in 0.001927 seconds 
-  Import took 0.004950 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.194603 seconds.
-  path: Assets/Imports/HAS Creatures/HAS Creature Pack 1.1
-  artifactKey: Guid(a069772069e91c549a3367762ebef736) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imports/HAS Creatures/HAS Creature Pack 1.1 using Guid(a069772069e91c549a3367762ebef736) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aed55b55ee79f4eb8eef449c929e4cd3') in 0.001796 seconds 
-  Import took 0.004737 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.386933 seconds.
-  path: Assets/Imports/HAS Creatures/HAS Creature Pack 1.2/Castle
-  artifactKey: Guid(40a9056a1dbb2ef459d50845b2c94eee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imports/HAS Creatures/HAS Creature Pack 1.2/Castle using Guid(40a9056a1dbb2ef459d50845b2c94eee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '363aa955c7e4d35beeb39376be0e29cd') in 0.001740 seconds 
-  Import took 0.004514 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.078236 seconds.
-  path: Assets/Imports/HAS Creatures/HAS Creature Pack 1.2/Castle/CastleIcons.png
-  artifactKey: Guid(afd1ec210d7b422428672c729a5a27b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imports/HAS Creatures/HAS Creature Pack 1.2/Castle/CastleIcons.png using Guid(afd1ec210d7b422428672c729a5a27b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a50cecef9073ca7fdaaaa1f68573a34f') in 0.013146 seconds 
-  Import took 0.016026 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000256 seconds.
-  path: Assets/Imports/HAS Creatures/HAS Creature Pack 1.2/Castle/CastleSpriteSheet.png
-  artifactKey: Guid(2ae3fcd38a897094280ac2b557a42b3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imports/HAS Creatures/HAS Creature Pack 1.2/Castle/CastleSpriteSheet.png using Guid(2ae3fcd38a897094280ac2b557a42b3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e39bf9d14294e304d39713de4cee9e9') in 0.582189 seconds 
-  Import took 0.586141 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 28.642992 seconds.
-  path: Assets/Imports/HAS Creatures/HAS Creature Pack 1.2/Inferno
-  artifactKey: Guid(64fa94bc1f65b6346b1f8f36532b8428) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imports/HAS Creatures/HAS Creature Pack 1.2/Inferno using Guid(64fa94bc1f65b6346b1f8f36532b8428) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a947ce87b6043fe8a0c2d094dc5785f4') in 0.002039 seconds 
-  Import took 0.005382 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.081173 seconds.
-  path: Assets/Imports/HAS Creatures/HAS Creature Pack 1.2/Inferno/InfernoIcons.png
-  artifactKey: Guid(8af9cc6822e329144b83808d5cf0e4b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imports/HAS Creatures/HAS Creature Pack 1.2/Inferno/InfernoIcons.png using Guid(8af9cc6822e329144b83808d5cf0e4b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92658e38344b56fbb224fb577c54ee1d') in 0.011782 seconds 
-  Import took 0.014556 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000264 seconds.
-  path: Assets/Imports/HAS Creatures/HAS Creature Pack 1.2/Inferno/InfernoSpriteSheet.png
-  artifactKey: Guid(4d59d4d73b706fc4d83c9e68d64ea740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imports/HAS Creatures/HAS Creature Pack 1.2/Inferno/InfernoSpriteSheet.png using Guid(4d59d4d73b706fc4d83c9e68d64ea740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3c1c8c760f24552cd39d2c2a3d28b49') in 0.021884 seconds 
-  Import took 0.024483 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 12.308489 seconds.
-  path: Assets/Imports/HAS Creatures/HAS Creature Pack 1.2/Inferno/InfernoSpriteSheet.png
-  artifactKey: Guid(4d59d4d73b706fc4d83c9e68d64ea740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imports/HAS Creatures/HAS Creature Pack 1.2/Inferno/InfernoSpriteSheet.png using Guid(4d59d4d73b706fc4d83c9e68d64ea740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9a58da66625bd6e0e4d7e61436d6e94') in 0.014758 seconds 
-  Import took 0.017505 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 28.867385 seconds.
-  path: Assets/Imports/HAS Creatures/HAS Creature Pack 1.2/Inferno/InfernoSpriteSheet.png
-  artifactKey: Guid(4d59d4d73b706fc4d83c9e68d64ea740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imports/HAS Creatures/HAS Creature Pack 1.2/Inferno/InfernoSpriteSheet.png using Guid(4d59d4d73b706fc4d83c9e68d64ea740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2fad2d2c816137fa1d2cc8147680e606') in 0.507877 seconds 
-  Import took 0.512088 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 868.066484 seconds.
-  path: Assets/Imports/HAS Creatures/HAS Creature Pack 1.2/Inferno/InfernoSpriteSheet.png
-  artifactKey: Guid(4d59d4d73b706fc4d83c9e68d64ea740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imports/HAS Creatures/HAS Creature Pack 1.2/Inferno/InfernoSpriteSheet.png using Guid(4d59d4d73b706fc4d83c9e68d64ea740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f9a1f6e77250e4f9ff187dbd6065286') in 0.488353 seconds 
-  Import took 0.492286 seconds .
-
-AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
