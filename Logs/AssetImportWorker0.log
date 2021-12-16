@@ -256,3 +256,12 @@ Received Import Request.
 Start importing Assets/Imports/HAS Creatures/HAS Creature Pack 1.2/Inferno/InfernoSpriteSheet.png using Guid(4d59d4d73b706fc4d83c9e68d64ea740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2fad2d2c816137fa1d2cc8147680e606') in 0.507877 seconds 
   Import took 0.512088 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 868.066484 seconds.
+  path: Assets/Imports/HAS Creatures/HAS Creature Pack 1.2/Inferno/InfernoSpriteSheet.png
+  artifactKey: Guid(4d59d4d73b706fc4d83c9e68d64ea740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imports/HAS Creatures/HAS Creature Pack 1.2/Inferno/InfernoSpriteSheet.png using Guid(4d59d4d73b706fc4d83c9e68d64ea740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f9a1f6e77250e4f9ff187dbd6065286') in 0.488353 seconds 
+  Import took 0.492286 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
