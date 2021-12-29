@@ -23,19 +23,21 @@ public class Pathfinder : MonoBehaviour
     private Grid mapgrid;
     private static Vector2Int[] directions = { Vector2Int.down, Vector2Int.up, Vector2Int.right, Vector2Int.left };
 
+    public Grid getGrid() => mapgrid;
+
     // When awakened, get variables components
     void Awake()
     {
         mapgridhandler = maps.GetComponent<GridCollisionHandler>();
         if (mapgridhandler == null)
-        { 
+        {
             maps.AddComponent<GridCollisionHandler>();
             mapgridhandler = maps.GetComponent<GridCollisionHandler>();
         } // will treat every tile as not walkable but prevents crashes
 
         mapgrid = maps.GetComponent<Grid>();
         if (mapgrid == null)
-        { 
+        {
             maps.AddComponent<Grid>();
             mapgrid = maps.GetComponent<Grid>();
         } //same
@@ -67,7 +69,7 @@ public class Pathfinder : MonoBehaviour
         //loop
         while (queue.Count > 0)
         {
-            
+
             range--;
             List<Vector2Int> queue_temp = new List<Vector2Int>(queue);
             foreach (Vector2Int point in queue_temp)
