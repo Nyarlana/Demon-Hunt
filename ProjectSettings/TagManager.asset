@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Pathfinder
+  - PlayerControlled
+  - AIControlled
   layers:
   - Default
   - TransparentFX

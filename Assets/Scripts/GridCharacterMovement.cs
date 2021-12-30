@@ -7,6 +7,7 @@ using UnityEngine.Tilemaps;
 public class GridCharacterMovement : MonoBehaviour
 {
   public Pathfinder pathfinder;
+  public TurnManager turnmanager;
   //public bool selected;
   private Grid grid;
 
@@ -23,6 +24,9 @@ public class GridCharacterMovement : MonoBehaviour
     {
       if (pathfinder == null) {
         pathfinder = (Pathfinder) GameObject.FindWithTag("Pathfinder").GetComponent("Pathfinder");
+      }
+      if (turnmanager == null) {
+        turnmanager = (TurnManager) GameObject.FindWithTag("Pathfinder").GetComponent("TurnManager");
       }
       grid = pathfinder.getGrid();
 
@@ -69,27 +73,28 @@ public class GridCharacterMovement : MonoBehaviour
 
     /*
     move to point target via grid movement. Queues movements.
+    returns true if a path is found.
     */
-    public void moveToPoint(Vector2Int target) {
+    public bool moveToPoint(Vector2Int target) {
       Vector2Int local_position = getGridPosition();
       Debug.Log(local_position);
 
       List<Vector2Int> path = pathfinder.findPath(local_position, target, range);
       if (path.Count <= 1) {
-        Debug.Log("Path not found");
-        return;
+        Debug.Log("Path not found"); //DEBUG
+        return false;
       }
-      Debug.Log(path);
+      Debug.Log(path.Count); //DEBUG
       //path.Reverse();
       locQueue = path;
-      return;
+      return true;
     }
 
     /*
     on character clicked
     */
     void OnMouseDown() {
-      //selected = true;
-      moveToPoint(new Vector2Int(0,0));
+      turnmanager.select(gameObject);
+      //moveToPoint(new Vector2Int(0,0));
     }
 }
