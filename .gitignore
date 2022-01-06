@@ -35,5 +35,9 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+<<<<<<< HEAD
 Logs/shadercompiler-UnityShaderCompiler.exe0.log
+=======
+*.log
+>>>>>>> 17876969c9234535e24ee24b9490fcd356f34a5a
 *.log
