@@ -16,5 +16,8 @@ public class character : ScriptableObject
     {
 
     }
+    public void print() {
+        Debug.Log(name + " does " + attack + " damage and has " + health + " live ");
+      }
     
 }
