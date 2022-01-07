@@ -52,7 +52,10 @@ public class GridCharacterMovement : MonoBehaviour
             locQueue.Remove(locQueue[0]);
             if (locQueue.Count > 0) { // GO THERE IF MOVES LEFT => reset timer
               timer = maxTimer;
-            }
+            } else
+                {
+                    turnmanager.Advance();
+                }
           }
       }
     }
