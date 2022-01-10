@@ -94,6 +94,18 @@ public class GridCharacterMovement : MonoBehaviour
     }
 
     /*
+     * returns mapdata of movement range
+     */
+    public Dictionary<Vector2Int, Vector2Int> areaOfEffect()
+    {
+        return pathfinder.BFS(getGridPosition(), range);
+    }
+    public Dictionary<Vector2Int, Vector2Int> areaOfEffect(List<GameObject> filter)
+    {
+        return pathfinder.BFS(getGridPosition(), range, filter);
+    }
+
+    /*
     on character clicked
     */
     void OnMouseDown() {

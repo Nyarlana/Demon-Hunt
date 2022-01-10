@@ -6,17 +6,20 @@ using UnityEngine.Tilemaps;
 
 public class TurnManager : MonoBehaviour
 {
-  public Pathfinder pathfinder;
-  [SerializeField] //DEBUG
-  private Grid mapgrid;
+    public Pathfinder pathfinder;
+    [SerializeField] //DEBUG
+    private Grid mapgrid;
+    [SerializeField] private Tilemap GUI;
+    [SerializeField] private TileBase guitile;
+    [SerializeField] private TileBase attackguitile;
 
-  [SerializeField] //DEBUG
-  private Dictionary<GameObject, bool> playerteam;
-  [SerializeField] //DEBUG
-  private Dictionary<GameObject, bool> aiteam;
+    [SerializeField] //DEBUG
+    private Dictionary<GameObject, bool> playerteam;
+    [SerializeField] //DEBUG
+    private Dictionary<GameObject, bool> aiteam;
 
-  [SerializeField] //DEBUG
-  private GameObject current;
+    [SerializeField] //DEBUG
+    private GameObject current;
 
   public enum TurnState // made so player turn is when state%2=1
   {
@@ -37,15 +40,13 @@ public class TurnManager : MonoBehaviour
         }
         mapgrid = pathfinder.getGrid();
 
-        List<GameObject> pt = new List<GameObject>(GameObject.FindGameObjectsWithTag("PlayerControlled"));
-        List<GameObject> ait = new List<GameObject>(GameObject.FindGameObjectsWithTag("AIControlled"));
         playerteam = new Dictionary<GameObject, bool>();
         aiteam = new Dictionary<GameObject, bool>();
-        foreach (GameObject item in pt)
+        foreach (GameObject item in GameObject.FindGameObjectsWithTag("PlayerControlled"))
         {
             playerteam[item] = true;
         }
-        foreach (GameObject item in ait)
+        foreach (GameObject item in GameObject.FindGameObjectsWithTag("AIControlled"))
         {
             aiteam[item] = true;
         }
@@ -59,16 +60,33 @@ public class TurnManager : MonoBehaviour
     {
          if (state == TurnState.PLAYER_WAIT)
          {
-             if (Input.GetMouseButtonDown(1) && current != null)
+             if (Input.GetMouseButtonDown(0) && current != null)
              {
+                //get mouse
                 Vector3 globalMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 globalMousePosition = mapgrid.WorldToCell(globalMousePosition);
                 Vector2Int target = new Vector2Int((int)globalMousePosition.x, (int)globalMousePosition.y);
+
+                // deal with entity collision
+                foreach (GameObject item in aiteam.Keys)
+                {
+                    GridCharacterMovement gcm = item.GetComponent<GridCharacterMovement>();
+                    if (target == gcm.getGridPosition()) return;
+                }
+                foreach (GameObject item in playerteam.Keys)
+                {
+                    GridCharacterMovement gcm = item.GetComponent<GridCharacterMovement>();
+                    if (target == gcm.getGridPosition()) return;
+                }
+
+                //execute movement
                 GridCharacterMovement player_entity = (GridCharacterMovement) current.GetComponent("GridCharacterMovement");
                 if (player_entity.moveToPoint(target) && player_entity != null) 
                 {
                     state = TurnState.PLAYER_ANIM;
+                    playerteam[current] = false;
                     current = null;
+                    GUI.ClearAllTiles();
                 }
              }
          }
@@ -79,8 +97,22 @@ public class TurnManager : MonoBehaviour
         if (!playerteam.ContainsKey(target)) return;
         if (state == TurnState.PLAYER_WAIT && playerteam[target]) 
         {
+            GUI.ClearAllTiles();
             current = target;
-            playerteam[target] = false;
+            List<GameObject> tenemylist = new List<GameObject>(aiteam.Keys);
+
+            foreach (Vector2Int item in target.GetComponent<GridCharacterMovement>().areaOfEffect(tenemylist).Keys)
+            {
+                GUI.SetTile(new Vector3Int(item.x, item.y, 0), guitile);
+                foreach (GameObject enemy in tenemylist)
+                {
+                    if (enemy.GetComponent<GridCharacterMovement>().getGridPosition() == item)
+                    {
+                        GUI.SetTile(new Vector3Int(item.x, item.y, 0), attackguitile);
+                    }
+                }
+            }
+            //playerteam[target] = false;
         }
     }
 

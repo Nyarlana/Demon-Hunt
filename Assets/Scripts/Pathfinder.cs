@@ -93,13 +93,17 @@ public class Pathfinder : MonoBehaviour
 
         //filter out GameObjects
         if (filter != null)
-        foreach (GameObject gObj in filter)
         {
-            Vector3 localpos = mapgrid.WorldToCell(gObj.transform.position);
-            if (!explored.Contains(new Vector2Int((int)localpos.x, (int)localpos.y)))
+            List<GameObject> gobjarr = new List<GameObject>(filter);
+            foreach (GameObject gObj in filter)
             {
-                filter.Remove(gObj);
+                Vector3 localpos = mapgrid.WorldToCell(gObj.transform.position);
+                if (!explored.Contains(new Vector2Int((int)localpos.x, (int)localpos.y)))
+                {
+                    gobjarr.Remove(gObj);
+                }
             }
+            filter = gobjarr;
         }
 
         return pathdata;

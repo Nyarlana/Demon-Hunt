@@ -42,6 +42,7 @@ public class GridCollisionHandler : MonoBehaviour
     public bool isTileWalkableLocal(Vector2Int position)
     {
         Vector3Int pos = new Vector3Int(position.x, position.y, 0);
+
         //Debug.Log(pos);
         bool res = false;
         Exceptions exeptres = Exceptions.NONE;
