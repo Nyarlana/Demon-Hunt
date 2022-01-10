@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 672e55d74bbe64f4e879614b4b6e7473, type: 3}
   m_Name: New Character
   m_EditorClassIdentifier: 
-  name: 
-  attack: 0
-  health: 0
+  name: archer
+  attack: 4
+  health: 100
+  artwork: {fileID: 21300000, guid: 3e29413a3a874f74895c585ab5314946, type: 3}
