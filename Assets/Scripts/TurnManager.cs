@@ -101,7 +101,7 @@ public class TurnManager : MonoBehaviour
             current = target;
             List<GameObject> tenemylist = new List<GameObject>(aiteam.Keys);
 
-            foreach (Vector2Int item in target.GetComponent<GridCharacterMovement>().areaOfEffect(tenemylist).Keys)
+            foreach (Vector2Int item in target.GetComponent<GridCharacterMovement>().areaOfEffect(ref tenemylist).Keys)
             {
                 GUI.SetTile(new Vector3Int(item.x, item.y, 0), guitile);
                 foreach (GameObject enemy in tenemylist)
@@ -126,12 +126,18 @@ public class TurnManager : MonoBehaviour
                 current = enemy;
                 List<GameObject> templayer = new List<GameObject>(playerteam.Keys);
                 GridCharacterMovement gcm = enemy.GetComponent<GridCharacterMovement>();
-                gcm.areaOfEffect(templayer);
+                Dictionary<Vector2Int, Vector2Int> pathdata = gcm.areaOfEffect(ref templayer);
+                //pathfinder.BFS(gcm.getGridPosition(), gcm.range, templayer);
+                foreach (GameObject item in templayer)
+                {
+                    Debug.Log("templayer : " + item);
+                }
                 if (templayer.Count > 0)
                 {
-                    Debug.Log(templayer[0]);
+                    Debug.Log("target : " + templayer[0] + " | origin : " + enemy);
                     Vector2Int arrival = templayer[0].GetComponent<GridCharacterMovement>().getGridPosition();
-                    List<Vector2Int> path = pathfinder.findPath(gcm.getGridPosition(), arrival, gcm.range);
+                    Debug.Log("target : " + arrival + " | origin : " + gcm.getGridPosition());
+                    List<Vector2Int> path = pathfinder.restorePath(pathdata, gcm.getGridPosition(), arrival); //pathfinder.findPath(gcm.getGridPosition(), arrival, gcm.range);
                     path.Remove(arrival);
                     gcm.setLocQueue(path);
                     aiteam[enemy] = false;

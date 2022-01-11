@@ -5,6 +5,8 @@ using UnityEngine.Tilemaps;
 
 public class Pathfinder : MonoBehaviour
 {
+    public List<GameObject> gobjarr; //DEBUG
+
 
     [SerializeField]
     private GameObject maps;
@@ -94,16 +96,26 @@ public class Pathfinder : MonoBehaviour
         //filter out GameObjects
         if (filter != null)
         {
-            List<GameObject> gobjarr = new List<GameObject>(filter);
+            Debug.LogWarning("FILTER");
+            /*List<GameObject>*/ gobjarr = new List<GameObject>();
             foreach (GameObject gObj in filter)
             {
                 Vector3 localpos = mapgrid.WorldToCell(gObj.transform.position);
                 if (!explored.Contains(new Vector2Int((int)localpos.x, (int)localpos.y)))
                 {
-                    gobjarr.Remove(gObj);
+                    gobjarr.Add(gObj);
+                    Debug.Log("Marked : " + gObj);
                 }
             }
-            filter = gobjarr;
+            foreach (GameObject gObj in gobjarr)
+            {
+                if (filter.Contains(gObj))
+                {
+                    filter.Remove(gObj);
+                    Debug.Log("Removed : " + gObj);
+                }
+            }
+            //filter = gobjarr;
         }
 
         return pathdata;

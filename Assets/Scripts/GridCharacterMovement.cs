@@ -106,7 +106,7 @@ public class GridCharacterMovement : MonoBehaviour
     {
         return pathfinder.BFS(getGridPosition(), range);
     }
-    public Dictionary<Vector2Int, Vector2Int> areaOfEffect(List<GameObject> filter)
+    public Dictionary<Vector2Int, Vector2Int> areaOfEffect(ref List<GameObject> filter)
     {
         return pathfinder.BFS(getGridPosition(), range, filter);
     }
