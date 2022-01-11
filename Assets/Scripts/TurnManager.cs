@@ -83,7 +83,7 @@ public class TurnManager : MonoBehaviour
                 GridCharacterMovement player_entity = (GridCharacterMovement) current.GetComponent("GridCharacterMovement");
                 if (player_entity.moveToPoint(target) && player_entity != null) 
                 {
-                    state = TurnState.PLAYER_ANIM;
+                    Advance();
                     playerteam[current] = false;
                     current = null;
                     GUI.ClearAllTiles();
@@ -116,6 +116,36 @@ public class TurnManager : MonoBehaviour
         }
     }
 
+    private void OnAiWait()
+    {
+        List<GameObject> temp = new List<GameObject>(aiteam.Keys);
+        foreach (GameObject enemy in temp)
+        {
+            if (aiteam[enemy])
+            {
+                current = enemy;
+                List<GameObject> templayer = new List<GameObject>(playerteam.Keys);
+                GridCharacterMovement gcm = enemy.GetComponent<GridCharacterMovement>();
+                gcm.areaOfEffect(templayer);
+                if (templayer.Count > 0)
+                {
+                    Debug.Log(templayer[0]);
+                    Vector2Int arrival = templayer[0].GetComponent<GridCharacterMovement>().getGridPosition();
+                    List<Vector2Int> path = pathfinder.findPath(gcm.getGridPosition(), arrival, gcm.range);
+                    path.Remove(arrival);
+                    gcm.setLocQueue(path);
+                    aiteam[enemy] = false;
+                }
+                else
+                {
+                    aiteam[enemy] = false;
+                }
+                Advance();
+                return;
+            }
+        }
+    }
+
     internal void Advance()
     {
         switch (state)
@@ -124,21 +154,38 @@ public class TurnManager : MonoBehaviour
                 state = TurnState.PLAYER_WAIT;
                 break;
             case TurnState.PLAYER_WAIT:
-                state = TurnState.PLAYER_WAIT;
+                state = TurnState.PLAYER_ANIM;
                 break;
             case TurnState.AI_WAIT:
-                state = TurnState.AI_WAIT;
+                state = TurnState.AI_ANIM;
                 break;
             case TurnState.PLAYER_ANIM:
                 if (!playerteam.ContainsValue(true))
                 {
+                    List<GameObject> temp = new List<GameObject>(aiteam.Keys);
+                    foreach (GameObject item in temp)
+                    {
+                        aiteam[item] = true;
+                    }
                     state = TurnState.AI_WAIT;
+                    OnAiWait();
                     break;
                 }
                 state = TurnState.PLAYER_WAIT;
                 break;
             case TurnState.AI_ANIM:
-                state = TurnState.AI_ANIM;
+                if (!aiteam.ContainsValue(true))
+                {
+                    List<GameObject> temp = new List<GameObject>(playerteam.Keys);
+                    foreach (GameObject item in temp)
+                    {
+                        playerteam[item] = true;
+                    }
+                    state = TurnState.PLAYER_WAIT;
+                    break;
+                }
+                state = TurnState.AI_WAIT;
+                OnAiWait();
                 break;
             default:
                 break;
