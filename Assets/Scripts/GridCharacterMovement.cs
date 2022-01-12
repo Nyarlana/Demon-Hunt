@@ -86,14 +86,11 @@ public class GridCharacterMovement : MonoBehaviour
     */
     public bool moveToPoint(Vector2Int target) {
       Vector2Int local_position = getGridPosition();
-      Debug.Log(local_position);
 
       List<Vector2Int> path = pathfinder.findPath(local_position, target, range);
       if (path.Count <= 1) {
-        Debug.Log("Path not found"); //DEBUG
         return false;
       }
-      Debug.Log(path.Count); //DEBUG
       //path.Reverse();
       locQueue = path;
       return true;

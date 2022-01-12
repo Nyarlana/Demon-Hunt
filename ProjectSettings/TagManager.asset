@@ -7,6 +7,8 @@ TagManager:
   - Pathfinder
   - PlayerControlled
   - AIControlled
+  - GUI
+  - MetaTilemap
   layers:
   - Default
   - TransparentFX
@@ -43,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Over
+    uniqueID: 1484794931
     locked: 0

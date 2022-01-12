@@ -39,6 +39,7 @@ public class TurnManager : MonoBehaviour
             pathfinder = (Pathfinder) GameObject.FindWithTag("Pathfinder").GetComponent("Pathfinder");
         }
         mapgrid = pathfinder.getGrid();
+        if (GUI == null) GUI = mapgrid.gameObject.GetComponent<GridCollisionHandler>().GetGUI();
 
         playerteam = new Dictionary<GameObject, bool>();
         aiteam = new Dictionary<GameObject, bool>();
@@ -126,12 +127,11 @@ public class TurnManager : MonoBehaviour
                 current = enemy;
                 List<GameObject> templayer = new List<GameObject>(playerteam.Keys);
                 GridCharacterMovement gcm = enemy.GetComponent<GridCharacterMovement>();
+
+                DoAiMeta(enemy);
                 Dictionary<Vector2Int, Vector2Int> pathdata = gcm.areaOfEffect(ref templayer);
-                //pathfinder.BFS(gcm.getGridPosition(), gcm.range, templayer);
-                foreach (GameObject item in templayer)
-                {
-                    Debug.Log("templayer : " + item);
-                }
+                mapgrid.gameObject.GetComponent<GridCollisionHandler>().GetMeta().ClearAllTiles();
+
                 if (templayer.Count > 0)
                 {
                     Debug.Log("target : " + templayer[0] + " | origin : " + enemy);
@@ -145,9 +145,23 @@ public class TurnManager : MonoBehaviour
                 else
                 {
                     aiteam[enemy] = false;
+                    Advance();
                 }
                 Advance();
                 return;
+            }
+        }
+    }
+
+    private void DoAiMeta(GameObject gm)
+    {
+        Tilemap tilemap = mapgrid.gameObject.GetComponent<GridCollisionHandler>().GetMeta();
+        foreach (GameObject item in aiteam.Keys)
+        {
+            if (item != gm)
+            {
+                Vector2Int locPos = item.GetComponent<GridCharacterMovement>().getGridPosition();
+                tilemap.SetTile(new Vector3Int(locPos.x, locPos.y, 0), guitile);
             }
         }
     }
