@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 672e55d74bbe64f4e879614b4b6e7473, type: 3}
-  m_Name: New Character
+  m_Name: Archer
   m_EditorClassIdentifier: 
   name: archer
   attack: 4
