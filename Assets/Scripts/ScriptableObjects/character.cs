@@ -14,6 +14,7 @@ public class character : ScriptableObject
     public int speed;
 
     public bool canHeal;
+    public bool canCharge;
 
     public Sprite artwork;
 
