@@ -6,13 +6,15 @@ public class CharacterActor : MonoBehaviour
 {
     public character classe;
     private int attack;
-    private int health;
+    private int maxhealth;
+    private int currenthealth;
     private int speed;
     // Start is called before the first frame update
     void Start()
     {
         attack = classe.attack;
-        health = classe.health;
+        maxhealth = classe.maxhealth;
+        currenthealth = classe.currenthealth;
         speed = classe.speed;
     }
 
@@ -23,21 +25,22 @@ public class CharacterActor : MonoBehaviour
     }
     void attackaction(CharacterActor hero, CharacterActor target)
     {
-        target.health = target.health - hero.attack;
+        target.currenthealth = target.currenthealth - hero.attack;
     }
-    void moveaction(CharacterActor hero)
+    /*void moveaction(CharacterActor hero)
     {
         hero.speed
-    }
+    }*/
     void death(CharacterActor self)
     {
-        if self.health >= 0{
+        if (self.currenthealth >= 0){
             Debug.Log("hero dies");
         }
     }
     void healaction(CharacterActor hero)//heal for paladin
     {
-        hero.health += 20;
+        hero.currenthealth += 20;
+        hero.maxhealth += 20;
     }
     void chargeaction(CharacterActor hero)//charge for cavalier
     {
@@ -45,9 +48,10 @@ public class CharacterActor : MonoBehaviour
     }
     void bigdamageaction(CharacterActor hero, CharacterActor damager)//bid damage for swordman
     {
-        if hero.health
+        if (hero.currenthealth < hero.maxhealth)
         {
-            damager.health = damager.health - hero.attack;
+            hero.attack = hero.attack + (hero.maxhealth - hero.currenthealth);
         }
     }
+
 }

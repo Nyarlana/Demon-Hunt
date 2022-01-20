@@ -10,17 +10,20 @@ public class character : ScriptableObject
     public string capacity2;
 
     public int attack;
-    public int health;
+    public int maxhealth;
+    public int currenthealth;
     public int speed;
 
     public bool canHeal;
     public bool canCharge;
+    public bool canbigdamage;
+    public bool ishero;
 
     public Sprite artwork;
 
     
     public void print() {
-        Debug.Log(name + " does " + attack + " damage with " + capacity1 + " and " + capacity2 + " in " + speed + " time and has " + health + " heath ");
+        Debug.Log(name + " does " + attack + " damage with " + capacity1 + " and " + capacity2 + " in " + speed + " time and has " + maxhealth + " heath ");
       }
    
     
