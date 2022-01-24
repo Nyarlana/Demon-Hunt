@@ -6,24 +6,26 @@ using UnityEngine;
 public class character : ScriptableObject
 {
     public new string name;
-    public string capacity1;
-    public string capacity2;
-
+   
     public int attack;
     public int maxhealth;
     public int currenthealth;
     public int speed;
+    public int range;
 
     public bool canHeal;
+    public bool canTank;
     public bool canCharge;
-    public bool canbigdamage;
-    public bool ishero;
+    public bool canBigDamage;
+    public bool canLongRange;
+    public bool canAvoidDamage;
+    public bool isHero;
 
     public Sprite artwork;
 
     
     public void print() {
-        Debug.Log(name + " does " + attack + " damage with " + capacity1 + " and " + capacity2 + " in " + speed + " time and has " + maxhealth + " heath ");
+        Debug.Log(name + " does " + attack + " damage " + " in " + speed + " time and has " + maxhealth + " heath ");
       }
    
     
