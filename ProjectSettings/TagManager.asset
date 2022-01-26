@@ -9,6 +9,7 @@ TagManager:
   - AIControlled
   - GUI
   - MetaTilemap
+  - BgTilemap
   layers:
   - Default
   - TransparentFX
