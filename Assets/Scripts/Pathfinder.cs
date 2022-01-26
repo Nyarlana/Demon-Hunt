@@ -6,11 +6,12 @@ using UnityEngine.Tilemaps;
 public class Pathfinder : MonoBehaviour
 {
 
+
     [SerializeField]
     private GameObject maps;
     //debug
-    [SerializeField]
-    private Tilemap debug;
+    //[SerializeField]
+    //private Tilemap debug;
     [SerializeField]
     private TileBase queuedTile;
     [SerializeField]
@@ -64,7 +65,7 @@ public class Pathfinder : MonoBehaviour
         Dictionary<Vector2Int, Vector2Int> pathdata = new Dictionary<Vector2Int, Vector2Int>();
         queue.Add(origin);
         pathdata.Add(origin, origin);
-        debug.SetTile(new Vector3Int(origin.x, origin.y, 0), queuedTile); //DEBUG
+        //debug.SetTile(new Vector3Int(origin.x, origin.y, 0), queuedTile); //DEBUG
 
         //loop
         while (queue.Count > 0)
@@ -75,7 +76,7 @@ public class Pathfinder : MonoBehaviour
             foreach (Vector2Int point in queue_temp)
             {
                 explored.Add(point);
-                debug.SetTile(new Vector3Int(point.x, point.y, 0), exploredtile); //DEBUG
+                //debug.SetTile(new Vector3Int(point.x, point.y, 0), exploredtile); //DEBUG
                 queue.Remove(point);
 
                 if (range > 0)
@@ -83,7 +84,7 @@ public class Pathfinder : MonoBehaviour
                 {
                     if (mapgridhandler.isTileWalkableLocal(direction + point) && !explored.Contains(direction + point) && !queue.Contains(direction + point))
                     {
-                        debug.SetTile(new Vector3Int(point.x+direction.x, point.y+direction.y, 0), queuedTile); //DEBUG
+                        //debug.SetTile(new Vector3Int(point.x+direction.x, point.y+direction.y, 0), queuedTile); //DEBUG
                         queue.Add(direction + point);
                         pathdata.Add(point+direction, point);
                     }
@@ -93,13 +94,27 @@ public class Pathfinder : MonoBehaviour
 
         //filter out GameObjects
         if (filter != null)
-        foreach (GameObject gObj in filter)
         {
-            Vector3 localpos = mapgrid.WorldToCell(gObj.transform.position);
-            if (!explored.Contains(new Vector2Int((int)localpos.x, (int)localpos.y)))
+            //Debug.LogWarning("FILTER");
+            List<GameObject> gobjarr = new List<GameObject>();
+            foreach (GameObject gObj in filter)
             {
-                filter.Remove(gObj);
+                Vector3 localpos = mapgrid.WorldToCell(gObj.transform.position);
+                if (!explored.Contains(new Vector2Int((int)localpos.x, (int)localpos.y)))
+                {
+                    gobjarr.Add(gObj);
+                    //Debug.Log("Marked : " + gObj);
+                }
             }
+            foreach (GameObject gObj in gobjarr)
+            {
+                if (filter.Contains(gObj))
+                {
+                    filter.Remove(gObj);
+                    //Debug.Log("Removed : " + gObj);
+                }
+            }
+            //filter = gobjarr;
         }
 
         return pathdata;
@@ -135,11 +150,11 @@ public class Pathfinder : MonoBehaviour
         while (current != origin)
         {
             res.Add(current);
-            debug.SetTile(new Vector3Int(current.x, current.y, 0), pathtile);
+            //debug.SetTile(new Vector3Int(current.x, current.y, 0), pathtile);
             current = map[current];
         }
         res.Add(origin);
-        debug.SetTile(new Vector3Int(current.x, current.y, 0), pathtile);
+        //debug.SetTile(new Vector3Int(current.x, current.y, 0), pathtile);
         res.Reverse();
         return res;
     }

@@ -12,13 +12,13 @@ public struct TileData
 
 public class GridCollisionHandler : MonoBehaviour
 {
-    [SerializeField]
-    private List<Tilemap> walkable_maps;
-    [SerializeField]
-    private List<Tilemap> mask_maps;
-    [SerializeField]
-    private List<TileData> exceptions; //last will override
+    public List<Tilemap> walkable_maps;
+    public List<Tilemap> mask_maps;
+    public List<TileData> exceptions; //last will override
     private Dictionary<TileBase, bool> exceptions_true;
+
+    private Tilemap guitm;
+    private Tilemap metatm;
 
     public TileBase test;
 
@@ -37,11 +37,51 @@ public class GridCollisionHandler : MonoBehaviour
             exceptions_true[item.tile] = item.isWalkable;
         }
         exceptions.Clear();
+
+        bool c = false;
+        foreach (Transform child in transform)
+        {
+            if (child.gameObject.tag == "GUI")
+            {
+                c = true;
+                guitm = child.gameObject.GetComponent<Tilemap>();
+            }
+        }
+        if (!c)
+        {
+            GameObject GUI = new GameObject("GUI", typeof(Tilemap), typeof(TilemapRenderer));
+            GUI.transform.parent = transform;
+            guitm = GUI.GetComponent<Tilemap>();
+            GUI.GetComponent<TilemapRenderer>().sortingLayerName = "Over";
+            GUI.tag = "GUI";
+        }
+
+        c = false;
+        foreach (Transform child in transform)
+        {
+            if (child.gameObject.tag == "MetaTilemap")
+            {
+                c = true;
+                metatm = child.gameObject.GetComponent<Tilemap>();
+            }
+        }
+        if (!c)
+        {
+            GameObject META = new GameObject("Meta", typeof(Tilemap));
+            META.transform.parent = transform;
+            metatm = META.GetComponent<Tilemap>();
+            META.tag = "MetaTilemap";
+        }
+        mask_maps.Add(metatm);
     }
+
+    public Tilemap GetGUI() => guitm;
+    public Tilemap GetMeta() => metatm;
 
     public bool isTileWalkableLocal(Vector2Int position)
     {
         Vector3Int pos = new Vector3Int(position.x, position.y, 0);
+
         //Debug.Log(pos);
         bool res = false;
         Exceptions exeptres = Exceptions.NONE;

@@ -6,17 +6,22 @@ using UnityEngine.Tilemaps;
 [RequireComponent(typeof(BoxCollider2D))]
 public class GridCharacterMovement : MonoBehaviour
 {
-  public Pathfinder pathfinder;
-  public TurnManager turnmanager;
-  //public bool selected;
-  private Grid grid;
+    public Pathfinder pathfinder;
+    public TurnManager turnmanager;
+    //public bool selected;
+    private Grid grid;
 
-  public int range = 3;
+    public int range = 3;
 
-  public float maxTimer = 0.2f; // Time between moves
-  private float timer;
-  private List<Vector2Int> locQueue; // Queue of positions to follow
-  private Vector3 previous_position; // for tween purposes
+    public float maxTimer = 0.2f; // Time between moves
+    private float timer;
+    [SerializeField] //DEBUG
+    private List<Vector2Int> locQueue; // Queue of positions to follow
+    private Vector3 previous_position;
+    public void setLocQueue(List<Vector2Int> _locQueue)
+    {
+        if (locQueue.Count <= 0) locQueue = new List<Vector2Int>(_locQueue);
+    }
 
     // Start is called before the first frame update
     // Used for empty variable setup
@@ -50,13 +55,17 @@ public class GridCharacterMovement : MonoBehaviour
             gameObject.transform.position = getWorldPosition(locQueue[0]) + grid.cellSize/2;
             previous_position = gameObject.transform.position - grid.cellSize/2;
             locQueue.Remove(locQueue[0]);
-            if (locQueue.Count > 0) { // GO THERE IF MOVES LEFT => reset timer
-              timer = maxTimer;
-            }
+            if (locQueue.Count > 0) 
+               { // GO THERE IF MOVES LEFT => reset timer
+               timer = maxTimer;
+               } 
+                else
+                {
+                    turnmanager.Advance();
+                }
           }
       }
     }
-
 
     /*
     returns grid position of gameObject
@@ -77,17 +86,26 @@ public class GridCharacterMovement : MonoBehaviour
     */
     public bool moveToPoint(Vector2Int target) {
       Vector2Int local_position = getGridPosition();
-      Debug.Log(local_position);
 
       List<Vector2Int> path = pathfinder.findPath(local_position, target, range);
       if (path.Count <= 1) {
-        Debug.Log("Path not found"); //DEBUG
         return false;
       }
-      Debug.Log(path.Count); //DEBUG
       //path.Reverse();
       locQueue = path;
       return true;
+    }
+
+    /*
+     * returns mapdata of movement range
+     */
+    public Dictionary<Vector2Int, Vector2Int> areaOfEffect()
+    {
+        return pathfinder.BFS(getGridPosition(), range);
+    }
+    public Dictionary<Vector2Int, Vector2Int> areaOfEffect(ref List<GameObject> filter)
+    {
+        return pathfinder.BFS(getGridPosition(), range, filter);
     }
 
     /*
