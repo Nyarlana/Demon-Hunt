@@ -36,7 +36,8 @@ public class GridCharacterMovement : MonoBehaviour
       grid = pathfinder.getGrid();
 
       locQueue = new List<Vector2Int>();
-      previous_position = grid.WorldToCell(gameObject.transform.position);
+        transform.position = grid.WorldToCell(gameObject.transform.position) + grid.cellSize/2;
+      previous_position = transform.position - grid.cellSize/2;
       timer = maxTimer;
     }
 

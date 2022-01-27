@@ -21,6 +21,10 @@ public class TurnManager : MonoBehaviour
     [SerializeField] //DEBUG
     private GameObject current;
 
+    [SerializeField] //DEBUG
+    private CharacterActor attack_target;
+    private CharacterActor attack_origin;
+
   public enum TurnState // made so player turn is when state%2=1
   {
     NONE = 0,
@@ -34,6 +38,8 @@ public class TurnManager : MonoBehaviour
 
     void Start()
     {
+        attack_target = null;
+        attack_origin = null;
         if (pathfinder == null) 
         {
             pathfinder = (Pathfinder) GameObject.FindWithTag("Pathfinder").GetComponent("Pathfinder");
@@ -69,15 +75,20 @@ public class TurnManager : MonoBehaviour
                 Vector2Int target = new Vector2Int((int)globalMousePosition.x, (int)globalMousePosition.y);
 
                 // deal with entity collision
-                foreach (GameObject item in aiteam.Keys)
-                {
-                    GridCharacterMovement gcm = item.GetComponent<GridCharacterMovement>();
-                    if (target == gcm.getGridPosition()) return;
-                }
                 foreach (GameObject item in playerteam.Keys)
                 {
                     GridCharacterMovement gcm = item.GetComponent<GridCharacterMovement>();
                     if (target == gcm.getGridPosition()) return;
+                }
+                foreach (GameObject item in aiteam.Keys)
+                {
+                    GridCharacterMovement gcm = item.GetComponent<GridCharacterMovement>();
+                    if (target == gcm.getGridPosition())
+                    {
+                        target = pathfinder.BFS(current.GetComponent<GridCharacterMovement>().getGridPosition(), 99)[target];
+                        attack_target = item.GetComponent<CharacterActor>();
+                        attack_origin = current.GetComponent<CharacterActor>();
+                    }
                 }
 
                 //execute movement
@@ -89,7 +100,17 @@ public class TurnManager : MonoBehaviour
                     current = null;
                     GUI.ClearAllTiles();
                 }
-             }
+                else if (attack_target != null)
+                {
+                    Advance();
+                    playerteam[current] = false;
+                    current = null;
+                    GUI.ClearAllTiles();
+                    Advance();
+                    //attack_origin.attackaction(attack_target);
+                    //attack_origin = null; attack_target = null;
+                }
+            }
          }
     }
 
@@ -134,9 +155,9 @@ public class TurnManager : MonoBehaviour
 
                 if (templayer.Count > 0)
                 {
-                    Debug.Log("target : " + templayer[0] + " | origin : " + enemy);
+                    // Debug.Log("target : " + templayer[0] + " | origin : " + enemy);
                     Vector2Int arrival = templayer[0].GetComponent<GridCharacterMovement>().getGridPosition();
-                    Debug.Log("target : " + arrival + " | origin : " + gcm.getGridPosition());
+                    // Debug.Log("target : " + arrival + " | origin : " + gcm.getGridPosition());
                     List<Vector2Int> path = pathfinder.restorePath(pathdata, gcm.getGridPosition(), arrival); //pathfinder.findPath(gcm.getGridPosition(), arrival, gcm.range);
                     path.Remove(arrival);
                     gcm.setLocQueue(path);
@@ -180,6 +201,11 @@ public class TurnManager : MonoBehaviour
                 state = TurnState.AI_ANIM;
                 break;
             case TurnState.PLAYER_ANIM:
+                if (attack_target != null)
+                {
+                    attack_origin.attackaction(attack_target);
+                    attack_origin = null; attack_target = null;
+                }
                 if (!playerteam.ContainsValue(true))
                 {
                     List<GameObject> temp = new List<GameObject>(aiteam.Keys);

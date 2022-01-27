@@ -7,6 +7,7 @@ public class CharacterActor : MonoBehaviour
     public character classe;
     private int attack;
     private int maxhealth;
+    [SerializeField] //DEBUG
     private int currenthealth;
     private int speed;
     private int range;
@@ -25,16 +26,21 @@ public class CharacterActor : MonoBehaviour
     {
  
     }
-    void attackaction(CharacterActor hero, CharacterActor target)
+    public void attackaction(CharacterActor target)
     {
-        target.currenthealth = target.currenthealth - hero.attack;
+        target.currenthealth = target.currenthealth - attack;
     }
     
     
-    void death(CharacterActor self)
+    public bool Death()
     {
-        if (self.currenthealth >= 0){
-            Debug.Log("hero dies");
+        if (currenthealth >= 0)
+        {
+            return false;
+        } else
+        {
+            Destroy(gameObject);
+            return true;
         }
     }
     void tankaction(CharacterActor hero)//tank for paladin

@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 672e55d74bbe64f4e879614b4b6e7473, type: 3}
-  m_Name: Archer
+  m_Name: Devil
   m_EditorClassIdentifier: 
-  name: archer
-  attack: 4
-  maxhealth: 8
-  currenthealth: 8
-  speed: 3
-  range: 2
+  name: Devil
+  attack: 2
+  maxhealth: 5
+  currenthealth: 5
+  speed: 2
+  range: 1
   canHeal: 0
   canTank: 0
   canCharge: 0
   canBigDamage: 0
-  canLongRange: 1
+  canLongRange: 0
   canAvoidDamage: 0
   isHero: 0
-  artwork: {fileID: 21300000, guid: 3e29413a3a874f74895c585ab5314946, type: 3}
+  artwork: {fileID: -3637801727421806886, guid: 4d59d4d73b706fc4d83c9e68d64ea740, type: 3}

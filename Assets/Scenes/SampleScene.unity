@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 267063079}
   - component: {fileID: 267063078}
   - component: {fileID: 267063077}
+  - component: {fileID: 267063080}
   - component: {fileID: 267063076}
   m_Layer: 0
   m_Name: Enemy
@@ -149,7 +150,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 267063075}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -250,6 +251,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &267063080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267063075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17235145403e50043a1f38bfbdb81a97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  classe: {fileID: 11400000, guid: 20f5746800e29c843a70303863e14777, type: 2}
+  currenthealth: 0
 --- !u!1 &281966066
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,6 +276,7 @@ GameObject:
   - component: {fileID: 281966070}
   - component: {fileID: 281966069}
   - component: {fileID: 281966068}
+  - component: {fileID: 281966071}
   - component: {fileID: 281966067}
   m_Layer: 0
   m_Name: Character (1)
@@ -377,6 +393,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &281966071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281966066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17235145403e50043a1f38bfbdb81a97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  classe: {fileID: 11400000, guid: a9e4d09fcd634e24d94d7d5ee579730a, type: 2}
+  currenthealth: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -5350,7 +5380,6 @@ GameObject:
   - component: {fileID: 764524596}
   - component: {fileID: 764524595}
   - component: {fileID: 764524594}
-  - component: {fileID: 764524593}
   - component: {fileID: 764524592}
   m_Layer: 0
   m_Name: Character
@@ -5385,19 +5414,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &764524593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 764524591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f935a20579da514fb5358d58cfad3a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  normal: {fileID: 11400000, guid: a9e4d09fcd634e24d94d7d5ee579730a, type: 2}
 --- !u!114 &764524594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5411,6 +5427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classe: {fileID: 11400000, guid: a9e4d09fcd634e24d94d7d5ee579730a, type: 2}
+  currenthealth: 0
 --- !u!114 &764524595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7548,6 +7565,7 @@ GameObject:
   - component: {fileID: 1209984689}
   - component: {fileID: 1209984688}
   - component: {fileID: 1209984687}
+  - component: {fileID: 1209984690}
   - component: {fileID: 1209984686}
   m_Layer: 0
   m_Name: Enemy (1)
@@ -7563,7 +7581,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1209984685}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -7664,6 +7682,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1209984690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209984685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17235145403e50043a1f38bfbdb81a97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  classe: {fileID: 11400000, guid: 20f5746800e29c843a70303863e14777, type: 2}
+  currenthealth: 0
 --- !u!1 &1337993453
 GameObject:
   m_ObjectHideFlags: 0
@@ -8184,6 +8216,7 @@ MonoBehaviour:
   guitile: {fileID: 11400000, guid: 04ff774dda79807449a4227329edd91b, type: 2}
   attackguitile: {fileID: 11400000, guid: 134aeda6f6009974d965994cf687f0a9, type: 2}
   current: {fileID: 0}
+  attack_target: {fileID: 0}
   state: 0
 --- !u!1 &1888797663
 GameObject:
