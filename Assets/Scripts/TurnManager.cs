@@ -162,6 +162,8 @@ public class TurnManager : MonoBehaviour
                     path.Remove(arrival);
                     gcm.setLocQueue(path);
                     aiteam[enemy] = false;
+                    attack_target = templayer[0].GetComponent<CharacterActor>();
+                    attack_origin = current.GetComponent<CharacterActor>();
                 }
                 else
                 {
@@ -204,6 +206,10 @@ public class TurnManager : MonoBehaviour
                 if (attack_target != null)
                 {
                     attack_origin.attackaction(attack_target);
+                    if (attack_target.Death())
+                    {
+                        aiteam.Remove(attack_target.gameObject);
+                    }
                     attack_origin = null; attack_target = null;
                 }
                 if (!playerteam.ContainsValue(true))
@@ -220,6 +226,15 @@ public class TurnManager : MonoBehaviour
                 state = TurnState.PLAYER_WAIT;
                 break;
             case TurnState.AI_ANIM:
+                if (attack_target != null)
+                {
+                    attack_origin.attackaction(attack_target);
+                    if (attack_target.Death())
+                    {
+                        playerteam.Remove(attack_target.gameObject);
+                    }
+                    attack_origin = null; attack_target = null;
+                }
                 if (!aiteam.ContainsValue(true))
                 {
                     List<GameObject> temp = new List<GameObject>(playerteam.Keys);
