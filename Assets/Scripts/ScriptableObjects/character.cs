@@ -23,6 +23,8 @@ public class character : ScriptableObject
 
     public Sprite artwork;
 
+    public AnimationClip anim;
+
     
     public void print() {
         Debug.Log(name + " does " + attack + " damage " + " in " + speed + " time and has " + maxhealth + " heath ");
