@@ -25,4 +25,4 @@ MonoBehaviour:
   canLongRange: 0
   canAvoidDamage: 0
   isHero: 1
-  artwork: {fileID: 0}
+  artwork: {fileID: -7495515786582853063, guid: 2ae3fcd38a897094280ac2b557a42b3c, type: 3}

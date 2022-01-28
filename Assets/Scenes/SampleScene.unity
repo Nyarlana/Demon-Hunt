@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 281966071}
   - component: {fileID: 281966067}
   m_Layer: 0
-  m_Name: Character (1)
+  m_Name: spearman
   m_TagString: PlayerControlled
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -368,8 +368,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.76224947, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: -7495515786582853063, guid: 2ae3fcd38a897094280ac2b557a42b3c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -387,7 +387,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 281966066}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.52, y: 1.57, z: 0}
+  m_LocalPosition: {x: -2.11, y: 1.57, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -405,7 +405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17235145403e50043a1f38bfbdb81a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  classe: {fileID: 11400000, guid: a9e4d09fcd634e24d94d7d5ee579730a, type: 2}
+  classe: {fileID: 11400000, guid: a340b2339d5810d4cad305efcba2c70b, type: 2}
   currenthealth: 0
 --- !u!1 &519420028
 GameObject:
@@ -5383,7 +5383,7 @@ GameObject:
   - component: {fileID: 764524592}
   - component: {fileID: 764524593}
   m_Layer: 0
-  m_Name: Character
+  m_Name: bowman
   m_TagString: PlayerControlled
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5406,7 +5406,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -5505,7 +5505,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 533a0a80f15e68842b407ccba5bbad98, type: 3}
+  m_Sprite: {fileID: -2102574331120106858, guid: 2ae3fcd38a897094280ac2b557a42b3c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

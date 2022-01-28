@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 672e55d74bbe64f4e879614b4b6e7473, type: 3}
   m_Name: paladin
   m_EditorClassIdentifier: 
-  name: 
-  attack: 0
-  maxhealth: 0
-  currenthealth: 0
-  speed: 0
-  range: 0
+  name: paladin
+  attack: 9
+  maxhealth: 60
+  currenthealth: 60
+  speed: 3
+  range: 1
   canHeal: 0
-  canTank: 0
+  canTank: 1
   canCharge: 0
   canBigDamage: 0
   canLongRange: 0
   canAvoidDamage: 0
-  isHero: 0
-  artwork: {fileID: 0}
+  isHero: 1
+  artwork: {fileID: -6048612436497417470, guid: 2ae3fcd38a897094280ac2b557a42b3c, type: 3}
