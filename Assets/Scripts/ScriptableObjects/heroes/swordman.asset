@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 672e55d74bbe64f4e879614b4b6e7473, type: 3}
   m_Name: swordman
   m_EditorClassIdentifier: 
-  name: 
-  attack: 0
-  maxhealth: 0
-  currenthealth: 0
-  speed: 0
-  range: 0
+  name: swordman
+  attack: 10
+  maxhealth: 50
+  currenthealth: 50
+  speed: 3
+  range: 1
   canHeal: 0
   canTank: 0
   canCharge: 0
-  canBigDamage: 0
+  canBigDamage: 1
   canLongRange: 0
   canAvoidDamage: 0
   isHero: 0
