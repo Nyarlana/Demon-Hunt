@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Devil
   m_EditorClassIdentifier: 
   name: Devil
-  attack: 2
-  maxhealth: 5
-  currenthealth: 5
+  attack: 20
+  maxhealth: 200
+  currenthealth: 200
   speed: 2
   range: 1
   canHeal: 0
@@ -25,4 +25,5 @@ MonoBehaviour:
   canLongRange: 0
   canAvoidDamage: 0
   isHero: 0
-  artwork: {fileID: -3637801727421806886, guid: 4d59d4d73b706fc4d83c9e68d64ea740, type: 3}
+  artwork: {fileID: -7455083318022555962, guid: 4d59d4d73b706fc4d83c9e68d64ea740, type: 3}
+  anim: {fileID: 7400000, guid: 2baaa16eaac5f7a44bb51c9ba411a28e, type: 2}
