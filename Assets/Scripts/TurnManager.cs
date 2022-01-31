@@ -40,7 +40,7 @@ public class TurnManager : MonoBehaviour
     {
         attack_target = null;
         attack_origin = null;
-        if (pathfinder == null)
+        if (pathfinder == null) 
         {
             pathfinder = (Pathfinder) GameObject.FindWithTag("Pathfinder").GetComponent("Pathfinder");
         }
@@ -69,9 +69,6 @@ public class TurnManager : MonoBehaviour
          {
              if (Input.GetMouseButtonDown(0) && current != null)
              {
-                //get entity
-                GridCharacterMovement player_entity = current.GetComponent<GridCharacterMovement>();
-
                 //get mouse
                 Vector3 globalMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 globalMousePosition = mapgrid.WorldToCell(globalMousePosition);
@@ -88,20 +85,15 @@ public class TurnManager : MonoBehaviour
                     GridCharacterMovement gcm = item.GetComponent<GridCharacterMovement>();
                     if (target == gcm.getGridPosition())
                     {
-                        //target = pathfinder.BFS(current.GetComponent<GridCharacterMovement>().getGridPosition(), 99)[target];
-                        Vector2Int res;
-                        if (player_entity.areaOfEffect().TryGetValue(target, out res))
-                        {
-                            //target = player_entity.areaOfEffect()[target];
-                            target = res;
-                            attack_target = item.GetComponent<CharacterActor>();
-                            attack_origin = current.GetComponent<CharacterActor>();
-                        }
+                        target = pathfinder.BFS(current.GetComponent<GridCharacterMovement>().getGridPosition(), 99)[target];
+                        attack_target = item.GetComponent<CharacterActor>();
+                        attack_origin = current.GetComponent<CharacterActor>();
                     }
                 }
 
                 //execute movement
-                if (player_entity.moveToPoint(target) && player_entity != null)
+                GridCharacterMovement player_entity = (GridCharacterMovement) current.GetComponent("GridCharacterMovement");
+                if (player_entity.moveToPoint(target) && player_entity != null) 
                 {
                     Advance();
                     playerteam[current] = false;
@@ -112,7 +104,6 @@ public class TurnManager : MonoBehaviour
                 {
                     Advance();
                     playerteam[current] = false;
-                    player_entity.OnActionDone();
                     current = null;
                     GUI.ClearAllTiles();
                     Advance();
@@ -123,10 +114,10 @@ public class TurnManager : MonoBehaviour
          }
     }
 
-    public void select(GameObject target)
+    public void select(GameObject target) 
     {
         if (!playerteam.ContainsKey(target)) return;
-        if (state == TurnState.PLAYER_WAIT && playerteam[target])
+        if (state == TurnState.PLAYER_WAIT && playerteam[target]) 
         {
             GUI.ClearAllTiles();
             current = target;
@@ -176,7 +167,6 @@ public class TurnManager : MonoBehaviour
                 }
                 else
                 {
-                    current = null;
                     aiteam[enemy] = false;
                     Advance();
                 }
@@ -229,7 +219,6 @@ public class TurnManager : MonoBehaviour
                     {
                         aiteam[item] = true;
                     }
-                    foreach (GameObject item in playerteam.Keys) item.GetComponent<GridCharacterMovement>().OnActionReset();
                     state = TurnState.AI_WAIT;
                     OnAiWait();
                     break;
@@ -253,7 +242,6 @@ public class TurnManager : MonoBehaviour
                     {
                         playerteam[item] = true;
                     }
-                    foreach (GameObject item in aiteam.Keys) item.GetComponent<GridCharacterMovement>().OnActionReset();
                     state = TurnState.PLAYER_WAIT;
                     break;
                 }

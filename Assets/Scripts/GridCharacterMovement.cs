@@ -10,7 +10,6 @@ public class GridCharacterMovement : MonoBehaviour
     public TurnManager turnmanager;
     //public bool selected;
     private Grid grid;
-    private SpriteRenderer spr;
 
     public int range = 3;
 
@@ -19,7 +18,6 @@ public class GridCharacterMovement : MonoBehaviour
     [SerializeField] //DEBUG
     private List<Vector2Int> locQueue; // Queue of positions to follow
     private Vector3 previous_position;
-
     public void setLocQueue(List<Vector2Int> _locQueue)
     {
         if (locQueue.Count <= 0) locQueue = new List<Vector2Int>(_locQueue);
@@ -29,9 +27,6 @@ public class GridCharacterMovement : MonoBehaviour
     // Used for empty variable setup
     void Start()
     {
-      if (spr == null) {
-        spr = gameObject.GetComponent<SpriteRenderer>();
-      }
       if (pathfinder == null) {
         pathfinder = (Pathfinder) GameObject.FindWithTag("Pathfinder").GetComponent("Pathfinder");
       }
@@ -61,13 +56,12 @@ public class GridCharacterMovement : MonoBehaviour
             gameObject.transform.position = getWorldPosition(locQueue[0]) + grid.cellSize/2;
             previous_position = gameObject.transform.position - grid.cellSize/2;
             locQueue.Remove(locQueue[0]);
-            if (locQueue.Count > 0)
+            if (locQueue.Count > 0) 
                { // GO THERE IF MOVES LEFT => reset timer
                timer = maxTimer;
-               }
+               } 
                 else
                 {
-                    OnActionDone();
                     turnmanager.Advance();
                 }
           }
@@ -121,15 +115,5 @@ public class GridCharacterMovement : MonoBehaviour
     void OnMouseDown() {
       turnmanager.select(gameObject);
       //moveToPoint(new Vector2Int(0,0));
-    }
-
-    public void OnActionDone()
-    {
-        spr.color = Color.gray;
-    }
-
-    public void OnActionReset()
-    {
-        spr.color = Color.white;
     }
 }

@@ -26,4 +26,4 @@ MonoBehaviour:
   canAvoidDamage: 0
   isHero: 0
   artwork: {fileID: -3637801727421806886, guid: 4d59d4d73b706fc4d83c9e68d64ea740, type: 3}
-  anim: {fileID: 9100000, guid: 60825e76d40e18d47b03c1a9bfe32e9c, type: 2}
+  anim: {fileID: 7400000, guid: c4c5659f46dae14468d58dbfe2a76edd, type: 2}
