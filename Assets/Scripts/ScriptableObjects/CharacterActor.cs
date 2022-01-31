@@ -18,8 +18,6 @@ public class CharacterActor : MonoBehaviour
         maxhealth = classe.maxhealth;
         currenthealth = classe.currenthealth;
         speed = classe.speed;
-        GridCharacterMovement gcm = gameObject.GetComponent<GridCharacterMovement>();
-        gcm.range = speed;
         range = classe.range;
     }
 
