@@ -19,19 +19,24 @@ public class CharacterActor : MonoBehaviour
         currenthealth = classe.currenthealth;
         speed = classe.speed;
         range = classe.range;
+
+        Animator anim = gameObject.GetComponent<Animator>();
+        if (anim != null) {
+            anim.runtimeAnimatorController = classe.anim;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
- 
+
     }
     public void attackaction(CharacterActor target)
     {
         target.currenthealth = target.currenthealth - attack;
     }
-    
-    
+
+
     public bool Death()
     {
         if (currenthealth >= 0)
