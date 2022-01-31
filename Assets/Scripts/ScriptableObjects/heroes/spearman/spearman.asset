@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: spearman
   m_EditorClassIdentifier: 
   name: spearman
-  attack: 8
+  attack: 10
   maxhealth: 30
   currenthealth: 30
   speed: 3
@@ -26,3 +26,4 @@ MonoBehaviour:
   canAvoidDamage: 0
   isHero: 1
   artwork: {fileID: -7495515786582853063, guid: 2ae3fcd38a897094280ac2b557a42b3c, type: 3}
+  anim: {fileID: 0}

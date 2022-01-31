@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: griffin
   m_EditorClassIdentifier: 
   name: griffin
-  attack: 11
+  attack: 15
   maxhealth: 20
   currenthealth: 20
   speed: 4
@@ -26,3 +26,4 @@ MonoBehaviour:
   canAvoidDamage: 1
   isHero: 1
   artwork: {fileID: -2286458074619411271, guid: 2ae3fcd38a897094280ac2b557a42b3c, type: 3}
+  anim: {fileID: 0}
