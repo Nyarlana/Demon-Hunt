@@ -18,6 +18,7 @@ public class CharacterActor : MonoBehaviour
         maxhealth = classe.maxhealth;
         currenthealth = classe.currenthealth;
         speed = classe.speed;
+        gameObject.GetComponent<GridCharacterMovement>().range = classe.speed;
         range = classe.range;
 
         Animator anim = gameObject.GetComponent<Animator>();
@@ -48,10 +49,10 @@ public class CharacterActor : MonoBehaviour
             return true;
         }
     }
-    void tankaction(CharacterActor hero)//tank for paladin
+    void tankaction()//tank for paladin
     {
-        hero.currenthealth += 20;
-        hero.maxhealth += 20;
+        currenthealth += 20;
+        maxhealth += 20;
     }
     void chargeaction(CharacterActor hero)//charge for cavalier
     {
