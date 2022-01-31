@@ -64,8 +64,8 @@ public class GridCharacterMovement : MonoBehaviour
             if (locQueue.Count > 0)
                { // GO THERE IF MOVES LEFT => reset timer
                     timer = maxTimer;
-                    if (locQueue[0].x < getGridPosition().x) GetComponent<SpriteRenderer>().flipX = true;
-                    else if (locQueue[0].x > getGridPosition().x) GetComponent<SpriteRenderer>().flipX = false;
+                    if (locQueue[0].x < getGridPosition().x) spr.flipX = true;
+                    else if (locQueue[0].x > getGridPosition().x) spr.flipX = false;
                }
                 else
                 {
