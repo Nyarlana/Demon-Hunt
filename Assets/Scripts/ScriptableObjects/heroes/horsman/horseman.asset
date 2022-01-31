@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: horseman
   m_EditorClassIdentifier: 
   name: horsman
-  attack: 21
+  attack: 25
   maxhealth: 40
   currenthealth: 40
   speed: 6
@@ -26,4 +26,4 @@ MonoBehaviour:
   canAvoidDamage: 0
   isHero: 1
   artwork: {fileID: 1992273529082852033, guid: 2ae3fcd38a897094280ac2b557a42b3c, type: 3}
-  anim: {fileID: 9100000, guid: d967ea212a9c2a04492beb5d8d55184f, type: 2}
+  anim: {fileID: 0}

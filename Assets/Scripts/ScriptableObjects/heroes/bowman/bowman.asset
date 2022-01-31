@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: bowman
   m_EditorClassIdentifier: 
   name: bowman
-  attack: 17
+  attack: 20
   maxhealth: 20
   currenthealth: 20
   speed: 3
