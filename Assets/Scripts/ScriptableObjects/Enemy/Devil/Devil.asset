@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Devil
   attack: 20
-  maxhealth: 200
-  currenthealth: 200
+  maxhealth: 100
+  currenthealth: 100
   speed: 2
   range: 1
   canHeal: 0

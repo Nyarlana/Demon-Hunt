@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: demon
   m_EditorClassIdentifier: 
   name: demon
-  attack: 17
-  maxhealth: 25
-  currenthealth: 25
+  attack: 10
+  maxhealth: 15
+  currenthealth: 15
   speed: 3
   range: 1
   canHeal: 0
